@@ -1,0 +1,32 @@
+# Titan AI Portal v2.0 — Phase 2 Board Recognition
+
+Phase 2 improves what the portal sees before Titan learns from a match.
+
+## Added
+
+- Stronger board-corner detection using multiple edge methods
+- Board confidence and 10×10 grid confidence
+- Automatic two-colour marble estimation
+- Four-click confirmation when piece colours are detected
+- Manual six-click fallback when confidence is low
+- Lightweight camera stabilization
+- Rejection of frames with hands, large motion or camera movement
+- Low-confidence frame rejection
+- Counter for covered or moving frames skipped
+
+## Deploy
+
+Upload the contents of this ZIP over the existing GitHub repository and commit. Railway redeploys automatically.
+
+Keep the existing Railway variables:
+
+```text
+ADMIN_PASSWORD=your password
+SESSION_SECRET=a long random secret
+DATA_DIR=/data
+MAX_UPLOAD_MB=500
+SAMPLE_FPS=1.5
+MAX_ANALYSIS_SECONDS=3600
+```
+
+Test with the same short video so you can compare Phase 1 and Phase 2.
