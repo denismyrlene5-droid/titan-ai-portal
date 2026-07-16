@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Titan Portal Login</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <main class="shell narrow">
+    <section class="hero">
+      <div>
+        <span class="eyebrow">PRIVATE TRAINING LAB</span>
+        <h1>Titan AI Portal</h1>
+        <p>Enter the administrator password configured on Railway.</p>
+      </div>
+    </section>
+    <section class="card">
+      <form method="post" action="/login">
+        <label>
+          <span>Password</span>
+          <input name="password" type="password" required autocomplete="current-password">
+        </label>
+        {% if error %}<p class="error">{{ error }}</p>{% endif %}
+        <button class="primary full" type="submit">Open portal</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

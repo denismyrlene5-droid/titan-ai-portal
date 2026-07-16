@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Titan AI Portal</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div>
+        <span class="eyebrow">GHANA DRAUGHTS TRAINING CLOUD</span>
+        <h1>Titan AI Portal</h1>
+        <p>Upload expert matches, reconstruct positions and turn real games into Titan training data.</p>
+      </div>
+      <form method="post" action="/logout"><button>Log out</button></form>
+    </section>
+
+    <section class="card">
+      <h2>1. Add a match</h2>
+      <form id="jobForm">
+        <label class="drop">
+          <input id="video" name="video" type="file" accept="video/*">
+          <strong>Upload MP4, MOV or WebM</strong>
+          <span>Tap here to choose a video</span>
+        </label>
+        <div class="or">or</div>
+        <label>
+          <span>YouTube link</span>
+          <input id="youtube_url" name="youtube_url" type="url" placeholder="https://youtu.be/...">
+        </label>
+        <button class="primary full" type="submit">Create analysis job</button>
+      </form>
+      <p class="fine">Only process videos you have permission to analyze.</p>
+    </section>
+
+    <section id="calibrationCard" class="card hidden">
+      <h2>2. Confirm the board</h2>
+      <p>The portal tries to detect the four corners automatically. Adjust them when needed, then tap one marble from each player.</p>
+      <div class="canvasWrap"><canvas id="calibrationCanvas"></canvas></div>
+      <div class="legend">
+        <span>1–4: board corners</span><span>5: Player A marble</span><span>6: Player B marble</span>
+      </div>
+      <div class="row">
+        <button id="undoPoint" type="button">Undo point</button>
+        <button id="resetPoints" type="button">Reset</button>
+        <button id="sendCalibration" class="primary" type="button" disabled>Start analysis</button>
+      </div>
+      <div id="pointStatus" class="status">0 of 6 points selected</div>
+    </section>
+
+    <section id="progressCard" class="card hidden">
+      <h2>3. Analysis</h2>
+      <div class="progress"><div id="progressBar"></div></div>
+      <p id="progressText">Preparing…</p>
+      <div id="summary" class="summary"></div>
+      <a id="downloadBtn" class="button primary hidden">Download full result</a>
+    </section>
+
+    <section class="card">
+      <h2>Recent jobs</h2>
+      <div class="jobs">
+        {% for job in jobs %}
+          <article class="job">
+            <div>
+              <strong>{{ job.source_name or job.id }}</strong>
+              <span>{{ job.stage }} · {{ job.progress }}%</span>
+            </div>
+            {% if job.stage == "complete" %}
+              <a class="button" href="/api/jobs/{{ job.id }}/download">Download</a>
+            {% endif %}
+          </article>
+        {% else %}
+          <p class="fine">No analysis jobs yet.</p>
+        {% endfor %}
+      </div>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+:root{font-family:Inter,system-ui,sans-serif;color:#f4f4f4;background:#090909}
+*{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at top,#1d2521,#090909 45%)}
+.shell{width:min(920px,94vw);margin:28px auto 80px}.hero{display:flex;justify-content:space-between;gap:20px;align-items:start;margin-bottom:18px}
+h1{font-size:clamp(34px,7vw,68px);line-height:.95;margin:8px 0 12px} h2{margin-top:0}.hero p{color:#bdbdbd;max-width:620px}
+.eyebrow{font-weight:900;letter-spacing:.16em;color:#f3c846;font-size:12px}.badge{padding:8px 12px;border:1px solid #49544e;border-radius:999px;background:#132019}
+.card{background:#121212;border:1px solid #313131;border-radius:18px;padding:18px;margin-top:14px;box-shadow:0 20px 60px #0008}
+label span{display:block;color:#bbb;font-size:13px;margin-bottom:7px} input[type=url]{width:100%;padding:14px;border-radius:12px;border:1px solid #3b3b3b;background:#0b0b0b;color:#fff}
+.drop{display:grid;place-items:center;text-align:center;padding:28px;border:1px dashed #5a6d61;border-radius:14px;background:#101713;cursor:pointer}.drop input{display:none}.drop span{margin-top:6px}.or{text-align:center;color:#666;margin:14px}
+button,.button{border:0;border-radius:12px;padding:13px 16px;background:#252525;color:#fff;font-weight:850;cursor:pointer;text-decoration:none;display:inline-block}
+.primary{background:#f1c84b;color:#111}.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.fine,.status{color:#999;font-size:13px}.hidden{display:none!important}
+.canvasWrap{overflow:auto;border-radius:14px;background:#050505;padding:8px} canvas{width:100%;height:auto;display:block;touch-action:none}
+.progress{height:12px;background:#272727;border-radius:999px;overflow:hidden}.progress div{height:100%;width:0;background:linear-gradient(90deg,#f3c846,#67df91);transition:width .25s}
+.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}.summary div{padding:12px;border-radius:12px;background:#181818;text-align:center}
+@media(max-width:620px){.hero{display:block}.badge{display:inline-block}.summary{grid-template-columns:1fr}}
+
+.narrow{max-width:560px}
+.full{width:100%;margin-top:14px}
+input[type=password]{width:100%;padding:14px;border-radius:12px;border:1px solid #3b3b3b;background:#0b0b0b;color:#fff}
+.error{color:#ff8b8b;font-weight:700}
+.legend{display:flex;gap:10px;flex-wrap:wrap;margin-top:9px;color:#aaa;font-size:12px}
+.jobs{display:grid;gap:8px}.job{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:12px;background:#181818;border-radius:12px}
+.job div{display:grid;gap:4px}.job span{color:#999;font-size:12px}
